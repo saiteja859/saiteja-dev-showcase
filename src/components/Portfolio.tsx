@@ -134,6 +134,7 @@ const Portfolio = () => {
     { label: 'Education', id: 'education' },
     { label: 'Projects', id: 'projects' },
     { label: 'Experience', id: 'experience' },
+    { label: 'Resume', id: 'resume' },
     { label: 'Contact', id: 'contact' },
   ];
 
@@ -271,18 +272,8 @@ const Portfolio = () => {
           </AnimatedSection>
 
           <AnimatedSection delay={200}>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Card className="bg-card/50 border-border hover:shadow-glow transition-all duration-300">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl font-bold text-primary-foreground">20</span>
-                  </div>
-                  <h3 className="font-semibold text-primary mb-2">Age</h3>
-                  <p className="text-muted-foreground">Years Old</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-card/50 border-border hover:shadow-glow transition-all duration-300">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              <Card className="bg-card/80 border-border hover:shadow-glow transition-all duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
                     <Phone className="w-6 h-6 text-primary-foreground" />
@@ -292,7 +283,7 @@ const Portfolio = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-card/50 border-border hover:shadow-glow transition-all duration-300">
+              <Card className="bg-card/80 border-border hover:shadow-glow transition-all duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
                     <Mail className="w-6 h-6 text-primary-foreground" />
@@ -302,7 +293,7 @@ const Portfolio = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-card/50 border-border hover:shadow-glow transition-all duration-300">
+              <Card className="bg-card/80 border-border hover:shadow-glow transition-all duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
                     <MapPin className="w-6 h-6 text-primary-foreground" />
@@ -311,6 +302,25 @@ const Portfolio = () => {
                   <p className="text-muted-foreground text-sm">Gajapathinagaram, India</p>
                 </CardContent>
               </Card>
+            </div>
+            
+            <div className="flex justify-center gap-4">
+              <Button 
+                variant="outline"
+                className="bg-gradient-primary text-primary-foreground border-0 hover:shadow-glow transition-all duration-300"
+                onClick={() => window.open('https://linkedin.com/in/saiteja', '_blank')}
+              >
+                <Linkedin className="w-5 h-5 mr-2" />
+                LinkedIn
+              </Button>
+              <Button 
+                variant="outline"
+                className="bg-gradient-primary text-primary-foreground border-0 hover:shadow-glow transition-all duration-300"
+                onClick={() => window.open('https://github.com/saiteja', '_blank')}
+              >
+                <Github className="w-5 h-5 mr-2" />
+                GitHub
+              </Button>
             </div>
           </AnimatedSection>
         </div>
@@ -426,6 +436,51 @@ const Portfolio = () => {
                 />
               ))}
             </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Resume Section */}
+      <section id="resume" className="py-20">
+        <div className="container mx-auto px-4">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+                Resume
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Download my complete resume
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={200} className="text-center">
+            <Card className="bg-card/80 border-border shadow-elevated max-w-md mx-auto">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-8 h-8 text-primary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-primary mb-4">Sai Teja - Resume</h3>
+                <p className="text-muted-foreground mb-6">
+                  Complete overview of my skills, experience, and projects
+                </p>
+                <Button 
+                  className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-primary-foreground"
+                  onClick={() => {
+                    // Create a download link for resume
+                    const link = document.createElement('a');
+                    link.href = '#'; // Would be actual resume file URL
+                    link.download = 'Sai_Teja_Resume.pdf';
+                    link.click();
+                  }}
+                >
+                  <ExternalLink className="w-5 h-5 mr-2" />
+                  Download Resume
+                </Button>
+              </CardContent>
+            </Card>
           </AnimatedSection>
         </div>
       </section>

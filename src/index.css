@@ -6,49 +6,49 @@
 
 @layer base {
   :root {
-    /* Portfolio Dark Theme */
-    --background: 217 33% 8%;
-    --foreground: 213 31% 91%;
+    /* Portfolio Light Theme */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
     
-    --card: 217 32% 11%;
-    --card-foreground: 213 31% 91%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
     
-    --popover: 217 32% 11%;
-    --popover-foreground: 213 31% 91%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
     
-    /* Teal Primary */
-    --primary: 174 72% 56%;
-    --primary-foreground: 217 33% 8%;
-    --primary-glow: 174 72% 66%;
+    /* Blue Primary */
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 221.2 83.2% 63.3%;
     
-    /* Purple Secondary */
-    --secondary: 262 61% 65%;
-    --secondary-foreground: 217 33% 8%;
-    --secondary-glow: 262 61% 75%;
+    /* Teal Secondary */
+    --secondary: 174 72% 56%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 174 72% 66%;
     
-    --muted: 217 32% 15%;
-    --muted-foreground: 213 20% 65%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
     
-    --accent: 174 72% 56%;
-    --accent-foreground: 217 33% 8%;
+    --accent: 221.2 83.2% 53.3%;
+    --accent-foreground: 210 40% 98%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
     
-    --border: 217 32% 18%;
-    --input: 217 32% 15%;
-    --ring: 174 72% 56%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
     
     --radius: 0.75rem;
     
     /* Custom Design Tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(174 72% 56%), hsl(262 61% 65%));
-    --gradient-subtle: linear-gradient(180deg, hsl(217 32% 11%), hsl(217 32% 9%));
-    --gradient-glow: linear-gradient(135deg, hsl(174 72% 56% / 0.1), hsl(262 61% 65% / 0.1));
+    --gradient-primary: linear-gradient(135deg, hsl(221.2 83.2% 53.3%), hsl(174 72% 56%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --gradient-glow: linear-gradient(135deg, hsl(221.2 83.2% 53.3% / 0.1), hsl(174 72% 56% / 0.1));
     
-    --shadow-glow: 0 0 40px hsl(174 72% 56% / 0.15);
-    --shadow-card: 0 4px 16px hsl(217 33% 4% / 0.4);
-    --shadow-elevated: 0 8px 32px hsl(217 33% 4% / 0.6);
+    --shadow-glow: 0 0 40px hsl(221.2 83.2% 53.3% / 0.15);
+    --shadow-card: 0 4px 16px hsl(0 0% 0% / 0.05);
+    --shadow-elevated: 0 8px 32px hsl(0 0% 0% / 0.1);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
