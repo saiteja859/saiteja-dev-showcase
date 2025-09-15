@@ -9,7 +9,7 @@ import AnimatedSection from './AnimatedSection';
 import ProjectCard from './ProjectCard';
 import SkillCard from './SkillCard';
 import TimelineItem from './TimelineItem';
-import profileImage from '@/assets/profile.jpg';
+import profileImage from '@/assets/profile.png';
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -68,22 +68,22 @@ const Portfolio = () => {
       title: 'Easy Bookings',
       description: 'A rental property listing platform built with modern web technologies.',
       technologies: 'Express.js, MongoDB, JavaScript, EJS',
-      liveUrl: '#',
-      codeUrl: '#'
+      // liveUrl: '#',
+      codeUrl: 'https://github.com/saiteja859/EASYBOOKINGS'
     },
     {
       title: 'Volume Controller',
       description: 'AI-based gesture volume control system using computer vision.',
       technologies: 'Python, OpenCV, MediaPipe, AI/ML',
-      liveUrl: '#',
-      codeUrl: '#'
+      // liveUrl: '#',
+      codeUrl: 'https://github.com/saiteja859/Touchless_controller'
     },
     {
       title: 'Equipment Rental',
       description: 'Complete platform for renting various types of equipment online.',
       technologies: 'MERN Stack, MongoDB, React, Node.js',
-      liveUrl: '#',
-      codeUrl: '#'
+      // liveUrl: '#',
+      codeUrl: 'https://github.com/saiteja859/equipment-rental'
     }
   ];
 
@@ -231,7 +231,7 @@ const Portfolio = () => {
                   <Button 
                     variant="outline" 
                     onClick={() => scrollToSection('projects')}
-                    className="border-primary text-primary hover:bg-primary/10"
+                    className="border-primary text-primary "
                   >
                     View My Work
                   </Button>
@@ -308,7 +308,7 @@ const Portfolio = () => {
               <Button 
                 variant="outline"
                 className="bg-gradient-primary text-primary-foreground border-0 hover:shadow-glow transition-all duration-300"
-                onClick={() => window.open('https://linkedin.com/in/saiteja', '_blank')}
+                onClick={() => window.open('https://www.linkedin.com/in/saitejaviswanadham/', '_blank')}
               >
                 <Linkedin className="w-5 h-5 mr-2" />
                 LinkedIn
@@ -316,7 +316,7 @@ const Portfolio = () => {
               <Button 
                 variant="outline"
                 className="bg-gradient-primary text-primary-foreground border-0 hover:shadow-glow transition-all duration-300"
-                onClick={() => window.open('https://github.com/saiteja', '_blank')}
+                onClick={() => window.open('https://github.com/saiteja859', '_blank')}
               >
                 <Github className="w-5 h-5 mr-2" />
                 GitHub
@@ -471,7 +471,7 @@ const Portfolio = () => {
                   onClick={() => {
                     // Create a download link for resume
                     const link = document.createElement('a');
-                    link.href = '#'; // Would be actual resume file URL
+                    link.href = 'https://drive.google.com/file/d/13f6s9puhPRbIlgUa6wo8XCy1fqK0GIRV/view?usp=sharing'; // Would be actual resume file URL
                     link.download = 'Sai_Teja_Resume.pdf';
                     link.click();
                   }}
@@ -593,14 +593,14 @@ const Portfolio = () => {
             
             <div className="flex items-center gap-6">
               <a 
-                href="#" 
+                href="https://github.com/saiteja859" 
                 className="text-muted-foreground hover:text-primary transition-colors duration-300"
                 aria-label="GitHub"
               >
                 <Github className="w-6 h-6" />
               </a>
               <a 
-                href="#" 
+                href="https://www.linkedin.com/in/saitejaviswanadham/" 
                 className="text-muted-foreground hover:text-primary transition-colors duration-300"
                 aria-label="LinkedIn"
               >
