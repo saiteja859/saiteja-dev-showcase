@@ -89,11 +89,11 @@ const Portfolio = () => {
 
   const education = [
     {
-      title: 'Bachelor of Engineering - Information Technology',
+      title: 'Bachelor of Technology - Computer Science And Engineering',
       subtitle: 'MVGR College of Engineering',
       period: '2023 - 2026',
       status: 'pursuing' as const,
-      description: 'Currently pursuing B.E. in Information Technology with focus on full-stack development and modern technologies.'
+      description: 'Currently pursuing BTech in Computer Science And Engineering with focus on full-stack development and modern technologies.'
     },
     {
       title: 'Diploma in Computer Science',
