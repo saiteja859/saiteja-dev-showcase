@@ -39,8 +39,9 @@ const ProjectCard = ({ title, description, technologies, liveUrl, codeUrl, image
           {liveUrl && (
             <a href={liveUrl} target="_blank" rel="noopener noreferrer">
               <Button 
-                size="sm" 
-                className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white "
+                size="sm"
+                variant='outline' 
+                className="border-blue-500 text-blue-600 "
               >
                 <ExternalLink className="w-4 h-4 mr-2" />
                 View Live

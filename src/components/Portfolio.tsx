@@ -84,7 +84,22 @@ const Portfolio = () => {
       technologies: 'MERN Stack, MongoDB, React, Node.js',
       // liveUrl: '#',
       codeUrl: 'https://github.com/saiteja859/equipment-rental'
-    }
+    },
+    {
+  title: 'Dark UX Detector',
+  description: 'Browser extension + web dashboard that detects dark UX/UI patterns (misleading buttons, hidden costs, forced sign-ups) on any website.',
+  technologies: 'MERN Stack, JavaScript, DOM Parsing',
+  // liveUrl: '#',
+  codeUrl: 'https://github.com/KarthikeyaTadiparti/SankalpHackathon'
+},
+{
+  title: 'AI Resume Analyzer',
+  description: 'AI-powered resume analysis web app that evaluates ATS compatibility, keyword optimization,personalized OpenAI-powered feedback.',
+  technologies: 'MERN Stack, OpenAI API, NLP',
+   liveUrl: 'https://ai-resume-analyzer-free-three.vercel.app/',
+  codeUrl: 'https://github.com/saiteja859/ai-resume-analyzer'
+}
+
   ];
 
   const education = [
@@ -471,7 +486,7 @@ const Portfolio = () => {
                   onClick={() => {
                     // Create a download link for resume
                     const link = document.createElement('a');
-                    link.href = 'https://drive.google.com/file/d/13f6s9puhPRbIlgUa6wo8XCy1fqK0GIRV/view?usp=sharing'; // Would be actual resume file URL
+                    link.href = 'https://drive.google.com/file/d/1uRoi--vLT2AIVX__QaXx6tVG7iNY--Dk/view?usp=sharing'; // Would be actual resume file URL
                     link.download = 'Sai_Teja_Resume.pdf';
                     link.click();
                   }}

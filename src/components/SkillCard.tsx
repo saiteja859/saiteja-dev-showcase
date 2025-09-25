@@ -9,17 +9,17 @@ const SkillCard = ({ skill, category = 'frontend' }: SkillCardProps) => {
   const getCategoryColors = () => {
     switch (category) {
       case 'frontend':
-        return 'from-primary/20 to-primary-glow/20 border-primary/30 hover:border-primary/60';
+        return 'from-primary/15 to-secondary/15 border-primary/20 hover:border-secondary/40';
       case 'backend':
-        return 'from-secondary/20 to-secondary-glow/20 border-secondary/30 hover:border-secondary/60';
+        return 'from-primary/15 to-secondary/15 border-primary/20 hover:border-secondary/40';
       case 'database':
-        return 'from-accent/20 to-accent/30 border-accent/30 hover:border-accent/60';
+        return 'from-primary/15 to-secondary/15 border-primary/20 hover:border-secondary/40';
       case 'tools':
-        return 'from-muted/40 to-muted/20 border-muted/50 hover:border-muted/80';
+        return 'from-primary/15 to-secondary/15 border-primary/20 hover:border-secondary/40';
       case 'languages':
         return 'from-primary/15 to-secondary/15 border-primary/20 hover:border-secondary/40';
       default:
-        return 'from-primary/20 to-primary-glow/20 border-primary/30 hover:border-primary/60';
+        return 'from-primary/15 to-secondary/15 border-primary/20 hover:border-secondary/40';
     }
   };
 
