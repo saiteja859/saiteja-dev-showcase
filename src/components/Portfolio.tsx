@@ -3,13 +3,14 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Menu, X } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Menu, X, Award } from 'lucide-react';
 import TypingEffect from './TypingEffect';
 import AnimatedSection from './AnimatedSection';
 import ProjectCard from './ProjectCard';
 import SkillCard from './SkillCard';
 import TimelineItem from './TimelineItem';
 import profileImage from '@/assets/profile.png';
+
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,6 +62,7 @@ const Portfolio = () => {
     { skill: 'GitHub', category: 'tools' as const },
     { skill: 'Netlify', category: 'tools' as const },
     { skill: 'WordPress', category: 'tools' as const },
+    { skill: 'UiPath', category: 'tools' as const },
   ];
 
   const projects = [
@@ -143,12 +145,100 @@ const Portfolio = () => {
     }
   ];
 
+  const certifications = [
+    {
+      title: 'Web Development',
+      issuer: 'EduSkills',
+      period: '2025',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_web-development-activity-7330851664486158336-Kn6X?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+    {
+      title: 'AI-ML',
+      issuer: 'All India Council for Technical Education (AICTE) ',
+      period: '2025',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_google-ai-ml-virtual-internship-certificate-activity-7307326140505800705-Pqkl?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+    {
+      title: 'Palo Alto Cybersecurity',
+      issuer: 'APSCHE',
+      period: '2025',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_cyber-security-short-term-internship-activity-7286684712373305344-oLzY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+    {
+      title: 'Generative Al and Google Cloud Technologies',
+      issuer: 'GDSC',
+      period: '2025',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_generative-al-and-google-cloud-technologies-activity-7279691164671164416-y0po?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+    {
+      title: ' Cloud Computing ',
+      issuer: 'NPTEL',
+      period: '2025',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_cloudcomputing-swayam-nptel-activity-7268433016018878465-zyct?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+    {
+      title: 'Python and Django Framework And HTML 5',
+      issuer: 'Udemy',
+      period: '2024',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_udemy-fullstack-html-activity-7232768513621315586-IDSM?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+    {
+      title: 'Prompt design in vertex AI and Gen AI',
+      issuer: 'GDSC-MVGR',
+      period: '2024',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_gdsc-activity-7230853343722532864-ariu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+    {
+      title: 'Python 101 for Data Science',
+      issuer: 'Cognitive Class',
+      period: '2024',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_hey-linkedin-community-i-am-excited-to-activity-7230518876541739008-7WGk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+    {
+      title: 'SQL and Relational Databases 101',
+      issuer: 'Cognitive Class',
+      period: '2024',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_hey-linkedin-community-i-am-excited-to-activity-7223519515374931968-HH4g?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+    {
+      title: 'Employability Skills',
+      issuer: 'APSSDC & IBM',
+      period: '2024',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_employabilityskills-internship-careerdevelopment-activity-7217885925463195648-jsqM?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+    {
+      title: 'UI/UX Design',
+      issuer: 'Guvi',
+      period: '2024',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_im-thrilled-to-announce-my-new-certificate-activity-7171525148880068609-obQ7?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+    {
+      title: ' Introduction to Networks',
+      issuer: 'CISCO',
+      period: '2024',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_cisco-networking-netcad-activity-7194584557633900545-O2v_?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+    {
+      title: 'GEN-AI and GCCF path ways',
+      issuer: 'GDSC - MVGR',
+      period: '2024',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_completed-gen-ai-and-gccf-path-ways-activity-7132924702674583552-pYZ0?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+    {
+      title: 'Android Developer ',
+      issuer: 'AICTE & Eduskills',
+      period: '2024',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_aicte-eduskills-googlefordevelopers-activity-7204731332453703682-ZGxT?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
+  ];
+
   const navigationItems = [
     { label: 'About', id: 'about' },
     { label: 'Skills', id: 'skills' },
     { label: 'Education', id: 'education' },
     { label: 'Projects', id: 'projects' },
     { label: 'Experience', id: 'experience' },
+    { label: 'Certifications', id: 'certifications' },
     { label: 'Resume', id: 'resume' },
     { label: 'Contact', id: 'contact' },
   ];
@@ -449,6 +539,60 @@ const Portfolio = () => {
                   status={item.status}
                   description={item.description}
                 />
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section id="certifications" className="py-20">
+        <div className="container mx-auto px-6">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+                Certifications
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Verified achievements and credentials
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={200}>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {certifications.map((cert, index) => (
+                <div key={index} style={{ animationDelay: `${index * 100}ms` }}>
+                  <Card className="bg-card/50 backdrop-blur-sm border-border hover:shadow-card transition-all duration-300 hover:scale-[1.02]">
+                    <CardHeader>
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <CardTitle className="text-primary text-lg flex items-center gap-2">
+                            <Award className="w-5 h-5" />
+                            {cert.title}
+                          </CardTitle>
+                          <CardDescription className="text-muted-foreground">
+                            {cert.issuer}
+                          </CardDescription>
+                        </div>
+                        <span className="text-sm text-muted-foreground whitespace-nowrap">{cert.period}</span>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      {cert.credentialUrl && (
+                        <a
+                          href={cert.credentialUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-sm text-primary hover:underline"
+                        >
+                          <ExternalLink className="w-4 h-4 mr-1" />
+                          View credential
+                        </a>
+                      )}
+                    </CardContent>
+                  </Card>
+                </div>
               ))}
             </div>
           </AnimatedSection>
