@@ -644,7 +644,7 @@ const Portfolio = () => {
                   onClick={() => {
                     // Create a download link for resume
                     const link = document.createElement('a');
-                    link.href = 'https://drive.google.com/file/d/1uRoi--vLT2AIVX__QaXx6tVG7iNY--Dk/view?usp=sharing'; // Would be actual resume file URL
+                    link.href = 'https://drive.google.com/file/d/10vzdUgCsMr-HP3i1uKZoJOQfEpIPSITW/view?usp=sharing'; // Would be actual resume file URL
                     link.download = 'Sai_Teja_Resume.pdf';
                     link.click();
                   }}
