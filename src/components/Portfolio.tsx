@@ -63,6 +63,8 @@ const Portfolio = () => {
     { skill: 'Netlify', category: 'tools' as const },
     { skill: 'WordPress', category: 'tools' as const },
     { skill: 'UiPath', category: 'tools' as const },
+    { skill: 'Vercel', category: 'tools' as const },
+    { skill: 'Render', category: 'tools' as const },
   ];
 
   const projects = [
@@ -100,6 +102,13 @@ const Portfolio = () => {
   technologies: 'MERN Stack, OpenAI API, NLP',
    liveUrl: 'https://ai-resume-analyzer-free-three.vercel.app/',
   codeUrl: 'https://github.com/saiteja859/ai-resume-analyzer'
+},
+{
+  title: 'Document Intelligence',
+  description: 'An AI-powered PDF summarization platform built using RAG and Gemini API to deliver accurate, context-aware document insights',
+  technologies: 'MERN Stack, Gemini API, RAG',
+   liveUrl: 'https://document-intelligence-hub-one.vercel.app/login',
+  codeUrl: 'https://github.com/saiteja859/document-intelligence-hub'
 }
 
   ];
@@ -146,6 +155,12 @@ const Portfolio = () => {
   ];
 
   const certifications = [
+    {
+      title: 'Full Stack',
+      issuer: 'Wipro',
+      period: '2025',
+      credentialUrl: 'https://www.linkedin.com/posts/saitejaviswanadham_successfully-completed-java-full-stack-program-activity-7407688598818496514-2ZB8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESN5SABm5_yH7wQ30QUMovz-5UYWTPRrus'
+    },
     {
       title: 'Web Development',
       issuer: 'EduSkills',
