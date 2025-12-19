@@ -69,6 +69,20 @@ const Portfolio = () => {
 
   const projects = [
     {
+  title: 'AI Resume Analyzer',
+  description: 'AI-powered resume analysis web app that evaluates ATS compatibility, keyword optimization,personalized OpenAI-powered feedback.',
+  technologies: 'MERN Stack, OpenAI API, NLP',
+   liveUrl: 'https://ai-resume-analyzer-free-three.vercel.app/',
+  codeUrl: 'https://github.com/saiteja859/ai-resume-analyzer'
+},
+{
+  title: 'Document Intelligence',
+  description: 'An AI-powered PDF summarization platform built using RAG and Gemini API to deliver accurate, context-aware document insights',
+  technologies: 'MERN Stack, Gemini API, RAG',
+   liveUrl: 'https://document-intelligence-hub-one.vercel.app/login',
+  codeUrl: 'https://github.com/saiteja859/document-intelligence-hub'
+},
+    {
       title: 'Easy Bookings',
       description: 'A rental property listing platform built with modern web technologies.',
       technologies: 'Express.js, MongoDB, JavaScript, EJS',
@@ -95,22 +109,7 @@ const Portfolio = () => {
   technologies: 'MERN Stack, JavaScript, DOM Parsing',
   // liveUrl: '#',
   codeUrl: 'https://github.com/KarthikeyaTadiparti/SankalpHackathon'
-},
-{
-  title: 'AI Resume Analyzer',
-  description: 'AI-powered resume analysis web app that evaluates ATS compatibility, keyword optimization,personalized OpenAI-powered feedback.',
-  technologies: 'MERN Stack, OpenAI API, NLP',
-   liveUrl: 'https://ai-resume-analyzer-free-three.vercel.app/',
-  codeUrl: 'https://github.com/saiteja859/ai-resume-analyzer'
-},
-{
-  title: 'Document Intelligence',
-  description: 'An AI-powered PDF summarization platform built using RAG and Gemini API to deliver accurate, context-aware document insights',
-  technologies: 'MERN Stack, Gemini API, RAG',
-   liveUrl: 'https://document-intelligence-hub-one.vercel.app/login',
-  codeUrl: 'https://github.com/saiteja859/document-intelligence-hub'
 }
-
   ];
 
   const education = [
