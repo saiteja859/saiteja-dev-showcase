@@ -109,6 +109,20 @@ const Portfolio = () => {
   technologies: 'MERN Stack, JavaScript, DOM Parsing',
   // liveUrl: '#',
   codeUrl: 'https://github.com/KarthikeyaTadiparti/SankalpHackathon'
+},
+ {
+  title: 'Campus Connect',
+  description: 'An AI-powered Campus Connect platform designed to streamline communication, event updates, and student collaboration through a smart, centralized system.',
+  technologies: 'MERN Stack, JavaScript, Gemini API',
+  // liveUrl: '#',
+  codeUrl: 'https://github.com/saiteja859/Campus-Connect.git'
+},
+ {
+  title: 'Cine Track',
+  description: 'CineTrack is a movie and series tracking platform that helps users organize watchlists, discover content, and manage entertainment schedules efficiently.',
+  technologies: 'Google AI Studio, Firebase , MERN',
+  liveUrl: 'https://cinetrack-781z.vercel.app/',
+  codeUrl: 'https://github.com/saiteja859/cinetrack.git'
 }
   ];
 
