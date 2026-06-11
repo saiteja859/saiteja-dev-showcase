@@ -123,6 +123,20 @@ const Portfolio = () => {
   technologies: 'Google AI Studio, Firebase , MERN',
   liveUrl: 'https://cinetrack-781z.vercel.app/',
   codeUrl: 'https://github.com/saiteja859/cinetrack.git'
+},
+ {
+  title: 'Job Link Tracker',
+  description: 'Job Link Sharing made easy. Share, track, and discover opportunities in one place. Vibe coded with a clean UI, duplicate detection, and seamless mobile-friendly experience.',
+  technologies: 'Google AI Studio, Firebase , MERN',
+  liveUrl: 'job-link-tracker-635172016859.asia-southeast1.run.app',
+  //codeUrl: 'https:'
+},
+ {
+  title: 'True Captures',
+  description: 'A vibe-coded photography portfolio website designed to showcase stunning moments through a clean, modern, and responsive gallery experience across desktop and mobile devices.',
+  technologies: 'Google AI Studio, Firebase , MERN',
+  liveUrl: 'https://truecaptures.vercel.app/',
+  codeUrl: 'https://github.com/saiteja859/truecaptures.git'
 }
   ];
 
