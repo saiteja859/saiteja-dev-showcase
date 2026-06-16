@@ -12,16 +12,16 @@ const TimelineItem = ({ title, subtitle, period, description, status = 'complete
   const getStatusColor = () => {
     switch (status) {
       case 'current':
-        return 'bg-primary border-primary shadow-glow animate-glow-pulse';
+        return 'bg-gradient-to-r from-primary to-secondary border-primary shadow-[0_0_15px_rgba(6,182,212,0.5)] animate-pulse';
       case 'pursuing':
-        return 'bg-secondary border-secondary';
+        return 'bg-violet-500 border-violet-400 shadow-[0_0_15px_rgba(139,92,246,0.3)]';
       default:
-        return 'bg-accent border-accent';
+        return 'bg-slate-300 border-slate-200';
     }
   };
 
   return (
-    <div className="relative flex items-start gap-4 group">
+    <div className="relative flex items-start gap-6 group pb-4">
       {/* Timeline dot */}
       <div className={`
         w-4 h-4 rounded-full border-2 mt-6 flex-shrink-0 z-10
@@ -29,22 +29,24 @@ const TimelineItem = ({ title, subtitle, period, description, status = 'complete
       `} />
       
       {/* Timeline line - only show if not the last item */}
-      <div className="absolute left-2 top-10 w-0.5 h-full bg-border group-last:hidden" />
+      <div className="absolute left-2 top-10 w-0.5 h-[calc(100%-16px)] bg-gradient-to-b from-primary/50 via-secondary/30 to-transparent group-last:hidden" />
       
       {/* Content */}
-      <Card className="flex-1 bg-card/50 backdrop-blur-sm border-border hover:shadow-card transition-all duration-300 hover:scale-[1.02] mb-6">
-        <CardHeader>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-            <CardTitle className="text-primary text-lg">{title}</CardTitle>
-            <span className="text-sm text-muted-foreground font-medium">{period}</span>
+      <Card className="flex-1 glass-panel hover:scale-[1.015] hover:border-primary/20 hover:shadow-[0_20px_40px_rgba(99,102,241,0.06)] transition-all duration-300 mb-2 border-black/5 rounded-2xl overflow-hidden shadow-card">
+        <CardHeader className="p-6 pb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <CardTitle className="text-foreground font-black text-lg leading-snug">{title}</CardTitle>
+            <span className="text-xs font-bold text-primary px-3 py-1 bg-primary/5 border border-primary/15 rounded-full w-fit whitespace-nowrap shadow-sm">
+              {period}
+            </span>
           </div>
-          <CardDescription className="text-accent font-medium">
+          <CardDescription className="text-primary/95 font-bold text-sm mt-1 uppercase tracking-wider">
             {subtitle}
           </CardDescription>
         </CardHeader>
         {description && (
-          <CardContent>
-            <p className="text-muted-foreground text-sm">{description}</p>
+          <CardContent className="px-6 pb-6 pt-0">
+            <p className="text-muted-foreground/90 font-medium text-sm leading-relaxed">{description}</p>
           </CardContent>
         )}
       </Card>

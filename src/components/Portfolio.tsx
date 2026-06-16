@@ -9,6 +9,7 @@ import AnimatedSection from './AnimatedSection';
 import ProjectCard from './ProjectCard';
 import SkillCard from './SkillCard';
 import TimelineItem from './TimelineItem';
+import InteractiveParticles from './InteractiveParticles';
 import profileImage from '@/assets/profile.png';
 
 
@@ -126,7 +127,7 @@ const Portfolio = () => {
 },
  {
   title: 'Job Link Tracker',
-  description: 'Job Link Sharing made easy. Share, track, and discover opportunities in one place. Vibe coded with a clean UI, duplicate detection, and seamless mobile-friendly experience.',
+  description: 'Job Link Sharing made easy. Share, track, and discover opportunities in one place. Vibe coded with UI, duplicate detection, and seamless mobile-friendly experience.',
   technologies: 'Google AI Studio, Firebase , MERN',
   liveUrl: 'job-link-tracker-635172016859.asia-southeast1.run.app',
   //codeUrl: 'https:'
@@ -286,12 +287,19 @@ const Portfolio = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden bg-grid-pattern">
+      {/* Ambient Background Glows */}
+      <div className="mesh-gradient">
+        <div className="mesh-blob-1"></div>
+        <div className="mesh-blob-2"></div>
+        <div className="mesh-blob-3"></div>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/40 backdrop-blur-xl border-b border-black/5 shadow-sm">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            <h1 className="text-xl font-black bg-gradient-primary bg-clip-text text-transparent tracking-widest uppercase">
               Sai Teja
             </h1>
             
@@ -301,7 +309,7 @@ const Portfolio = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 relative group"
+                  className="text-muted-foreground hover:text-primary font-bold text-sm tracking-wide transition-colors duration-300 relative py-1.5 group"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full" />
@@ -313,7 +321,7 @@ const Portfolio = () => {
             <Button
               variant="outline"
               size="sm"
-              className="md:hidden"
+              className="md:hidden border-black/10 bg-black/5 hover:bg-black/10 text-foreground"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -322,13 +330,13 @@ const Portfolio = () => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden mt-4 py-4 border-t border-border">
-              <div className="flex flex-col space-y-3">
+            <div className="md:hidden mt-4 py-4 border-t border-black/5 glass-panel rounded-xl px-4">
+              <div className="flex flex-col space-y-2">
                 {navigationItems.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="text-left text-muted-foreground hover:text-primary transition-colors duration-300 py-2"
+                    className="text-left text-muted-foreground hover:text-primary font-bold text-sm tracking-wide transition-colors duration-300 py-2.5 px-3 rounded-lg hover:bg-black/5"
                   >
                     {item.label}
                   </button>
@@ -340,45 +348,46 @@ const Portfolio = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-12 min-h-screen flex items-center">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="pt-24 pb-12 min-h-screen flex items-center relative z-10 overflow-hidden">
+        <InteractiveParticles />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <AnimatedSection animation="fade-in-left" className="order-2 lg:order-1">
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div className="space-y-4">
-                  <h2 className="text-2xl md:text-3xl font-bold text-primary">
+                  <h2 className="text-xs md:text-sm font-extrabold tracking-widest text-primary uppercase">
                     Hi There, I'm
                   </h2>
-                  <h1 className="text-4xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                  <h1 className="text-6xl md:text-8xl font-black bg-gradient-primary bg-clip-text text-transparent tracking-tighter leading-none pb-2 drop-shadow-sm">
                     Sai Teja
                   </h1>
-                  <div className="text-xl md:text-2xl text-muted-foreground">
+                  <div className="text-2xl md:text-4xl font-extrabold text-foreground">
                     <TypingEffect 
                       text="Full Stack Developer"
                       speed={100}
                       delay={1000}
-                      className="font-semibold"
+                      className="font-extrabold bg-gradient-primary bg-clip-text text-transparent"
                     />
                   </div>
                 </div>
                 
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed max-w-xl font-medium">
                   Passionate about coding, MERN stack, and building amazing applications. 
                   Let's create something incredible together!
                 </p>
                 
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 pt-2">
                   <Button 
                     onClick={() => scrollToSection('contact')}
-                    className="bg-gradient-primary hover:shadow-glow transition-all duration-300"
+                    className="bg-gradient-primary hover:shadow-glow hover:scale-[1.03] active:scale-[0.97] text-white font-extrabold tracking-wide transition-all duration-300 rounded-2xl px-10 py-7 text-sm uppercase"
                   >
                     Get In Touch
                   </Button>
                   <Button 
                     variant="outline" 
                     onClick={() => scrollToSection('projects')}
-                    className="border-primary text-primary "
+                    className="border-black/15 bg-white hover:bg-black/5 hover:scale-[1.03] active:scale-[0.97] text-foreground font-extrabold tracking-wide transition-all duration-300 rounded-2xl px-10 py-7 text-sm uppercase shadow-sm"
                   >
                     View My Work
                   </Button>
@@ -388,13 +397,22 @@ const Portfolio = () => {
 
             {/* Right Profile Image */}
             <AnimatedSection animation="fade-in-right" className="order-1 lg:order-2">
-              <div className="relative flex justify-center">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-primary rounded-full blur-xl opacity-30 animate-glow-pulse" />
+              <div className="relative flex justify-center items-center">
+                {/* Colorful Ambient aura glow */}
+                <div className="absolute w-[420px] h-[420px] bg-gradient-primary rounded-full blur-3xl opacity-20 animate-pulse pointer-events-none" />
+                
+                {/* Cyber Rotating Ring 1 */}
+                <div className="absolute w-[360px] h-[360px] rounded-full border border-dashed border-primary/40 animate-spin-slow pointer-events-none" />
+                
+                {/* Cyber Rotating Ring 2 */}
+                <div className="absolute w-[340px] h-[340px] rounded-full border-2 border-dotted border-secondary/35 animate-spin-reverse-slow pointer-events-none" />
+
+                {/* Profile Photo Wrapper */}
+                <div className="relative p-2.5 rounded-full bg-gradient-to-tr from-primary/30 via-secondary/20 to-accent/30 animate-float shadow-elevated z-10">
                   <img
                     src={profileImage}
                     alt="Sai Teja Profile"
-                    className="relative w-80 h-80 object-cover rounded-full border-4 border-primary/30 shadow-elevated animate-float"
+                    className="relative w-80 h-80 object-cover rounded-full border border-black/5"
                   />
                 </div>
               </div>
@@ -404,14 +422,17 @@ const Portfolio = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gradient-subtle">
-        <div className="container mx-auto px-6">
+      <section id="about" className="py-28 relative overflow-hidden z-10">
+        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+          INFO
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-primary bg-clip-text text-transparent uppercase tracking-tight">
                 About Me
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg md:text-2xl text-muted-foreground/90 max-w-3xl mx-auto leading-relaxed font-medium">
                 I'm Sai Teja, Full Stack Developer from Vizag, India. Passionate about coding, 
                 MERN stack, and building applications.
               </p>
@@ -419,53 +440,52 @@ const Portfolio = () => {
           </AnimatedSection>
 
           <AnimatedSection delay={200}>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              <Card className="bg-card/80 border-border hover:shadow-glow transition-all duration-300">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Phone className="w-6 h-6 text-primary-foreground" />
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              <Card className="glass-panel glass-panel-hover border-black/5 shadow-card hover:scale-[1.03] rounded-2xl shadow-[0_15px_30px_rgba(99,102,241,0.03)] transition-all duration-500">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 bg-gradient-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                    <Phone className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-primary mb-2">Phone</h3>
-                  <p className="text-muted-foreground text-sm">+91 6300193528</p>
+                  <h3 className="font-extrabold text-foreground text-xl mb-2">Phone</h3>
+                  <p className="text-muted-foreground text-base font-semibold">+91 6300193528</p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-card/80 border-border hover:shadow-glow transition-all duration-300">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Mail className="w-6 h-6 text-primary-foreground" />
+              <Card className="glass-panel glass-panel-hover border-black/5 shadow-card hover:scale-[1.03] rounded-2xl shadow-[0_15px_30px_rgba(99,102,241,0.03)] transition-all duration-500">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 bg-gradient-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                    <Mail className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-primary mb-2">Email</h3>
-                  <p className="text-muted-foreground text-sm">viswanadamsaiteja@gmail.com</p>
+                  <h3 className="font-extrabold text-foreground text-xl mb-2">Email</h3>
+                  <p className="text-muted-foreground text-base font-semibold break-all">viswanadamsaiteja@gmail.com</p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-card/80 border-border hover:shadow-glow transition-all duration-300">
-                <CardContent className="p-6 text-center">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="w-6 h-6 text-primary-foreground" />
+              <Card className="glass-panel glass-panel-hover border-black/5 shadow-card hover:scale-[1.03] rounded-2xl shadow-[0_15px_30px_rgba(99,102,241,0.03)] transition-all duration-500">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 bg-gradient-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                    <MapPin className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-primary mb-2">Location</h3>
-                  <p className="text-muted-foreground text-sm">Gajapathinagaram, India</p>
+                  <h3 className="font-extrabold text-foreground text-xl mb-2">Location</h3>
+                  <p className="text-muted-foreground text-base font-semibold">Gajapathinagaram, India</p>
                 </CardContent>
               </Card>
             </div>
             
             <div className="flex justify-center gap-4">
               <Button 
-                variant="outline"
-                className="bg-gradient-primary text-primary-foreground border-0 hover:shadow-glow transition-all duration-300"
+                className="bg-gradient-primary hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] text-white font-bold tracking-wide transition-all duration-300 rounded-xl px-8 py-5 uppercase text-xs"
                 onClick={() => window.open('https://www.linkedin.com/in/saitejaviswanadham/', '_blank')}
               >
-                <Linkedin className="w-5 h-5 mr-2" />
+                <Linkedin className="w-4 h-4 mr-2" />
                 LinkedIn
               </Button>
               <Button 
                 variant="outline"
-                className="bg-gradient-primary text-primary-foreground border-0 hover:shadow-glow transition-all duration-300"
+                className="border-black/10 bg-white hover:bg-black/5 hover:scale-[1.02] active:scale-[0.98] text-foreground font-bold tracking-wide transition-all duration-300 rounded-xl px-8 py-5 uppercase text-xs shadow-sm"
                 onClick={() => window.open('https://github.com/saiteja859', '_blank')}
               >
-                <Github className="w-5 h-5 mr-2" />
+                <Github className="w-4 h-4 mr-2" />
                 GitHub
               </Button>
             </div>
@@ -474,23 +494,26 @@ const Portfolio = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20">
-        <div className="container mx-auto px-6">
+      <section id="skills" className="py-28 relative overflow-hidden z-10">
+        <div className="watermark-text right-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+          TECH
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent uppercase tracking-tight">
                 Skills & Technologies
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-lg md:text-xl text-muted-foreground font-medium">
                 Technologies I work with to bring ideas to life
               </p>
             </div>
           </AnimatedSection>
 
           <AnimatedSection delay={200}>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
               {skills.map((skillItem, index) => (
-                <div key={index} style={{ animationDelay: `${index * 50}ms` }}>
+                <div key={index} style={{ animationDelay: `${index * 40}ms` }}>
                   <SkillCard skill={skillItem.skill} category={skillItem.category} />
                 </div>
               ))}
@@ -500,14 +523,17 @@ const Portfolio = () => {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-20 bg-gradient-subtle">
-        <div className="container mx-auto px-6">
+      <section id="education" className="py-28 relative overflow-hidden z-10">
+        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+          PATH
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-primary bg-clip-text text-transparent uppercase tracking-tight">
                 Education
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-lg md:text-xl text-muted-foreground font-medium">
                 My educational journey and achievements
               </p>
             </div>
@@ -531,14 +557,17 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20">
-        <div className="container mx-auto px-6">
+      <section id="projects" className="py-28 relative overflow-hidden z-10">
+        <div className="watermark-text right-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+          WORK
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-primary bg-clip-text text-transparent uppercase tracking-tight">
                 Featured Projects
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-lg md:text-xl text-muted-foreground font-medium">
                 Some of the projects I've built recently
               </p>
             </div>
@@ -547,7 +576,7 @@ const Portfolio = () => {
           <AnimatedSection delay={200}>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
-                <div key={index} style={{ animationDelay: `${index * 100}ms` }}>
+                <div key={index} style={{ animationDelay: `${index * 80}ms` }}>
                   <ProjectCard {...project} />
                 </div>
               ))}
@@ -557,14 +586,17 @@ const Portfolio = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 bg-gradient-subtle">
-        <div className="container mx-auto px-6">
+      <section id="experience" className="py-28 relative overflow-hidden z-10">
+        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+          ROLE
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-primary bg-clip-text text-transparent uppercase tracking-tight">
                 Work Experience
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-lg md:text-xl text-muted-foreground font-medium">
                 My professional journey and roles
               </p>
             </div>
@@ -588,47 +620,52 @@ const Portfolio = () => {
       </section>
 
       {/* Certifications Section */}
-      <section id="certifications" className="py-20">
-        <div className="container mx-auto px-6">
+      <section id="certifications" className="py-28 relative overflow-hidden z-10">
+        <div className="watermark-text right-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+          AWARD
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-primary bg-clip-text text-transparent uppercase tracking-tight">
                 Certifications
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-lg md:text-xl text-muted-foreground font-medium">
                 Verified achievements and credentials
               </p>
             </div>
           </AnimatedSection>
 
           <AnimatedSection delay={200}>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {certifications.map((cert, index) => (
-                <div key={index} style={{ animationDelay: `${index * 100}ms` }}>
-                  <Card className="bg-card/50 backdrop-blur-sm border-border hover:shadow-card transition-all duration-300 hover:scale-[1.02]">
-                    <CardHeader>
-                      <div className="flex items-start justify-between gap-3">
-                        <div>
-                          <CardTitle className="text-primary text-lg flex items-center gap-2">
-                            <Award className="w-5 h-5" />
+                <div key={index} style={{ animationDelay: `${index * 60}ms` }}>
+                  <Card className="glass-panel glass-panel-hover border-black/5 shadow-card hover:scale-[1.03] rounded-2xl overflow-hidden h-full flex flex-col justify-between shadow-[0_15px_35px_rgba(99,102,241,0.03)] hover:shadow-[0_20px_45px_rgba(99,102,241,0.1)] transition-all duration-500">
+                    <CardHeader className="p-6">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="space-y-2">
+                          <CardTitle className="text-foreground font-black text-lg flex items-center gap-2.5 leading-snug">
+                            <Award className="w-5 h-5 text-primary flex-shrink-0" />
                             {cert.title}
                           </CardTitle>
-                          <CardDescription className="text-muted-foreground">
+                          <CardDescription className="text-muted-foreground font-semibold">
                             {cert.issuer}
                           </CardDescription>
                         </div>
-                        <span className="text-sm text-muted-foreground whitespace-nowrap">{cert.period}</span>
+                        <span className="text-xs font-bold text-primary px-3 py-1.5 bg-primary/5 border border-primary/15 rounded-full whitespace-nowrap">
+                          {cert.period}
+                        </span>
                       </div>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="px-6 pb-6 pt-0 mt-auto">
                       {cert.credentialUrl && (
                         <a
                           href={cert.credentialUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center text-sm text-primary hover:underline"
+                          className="inline-flex items-center text-sm font-bold text-primary hover:text-accent transition-colors duration-300"
                         >
-                          <ExternalLink className="w-4 h-4 mr-1" />
+                          <ExternalLink className="w-4 h-4 mr-1.5" />
                           View credential
                         </a>
                       )}
@@ -642,33 +679,37 @@ const Portfolio = () => {
       </section>
 
       {/* Resume Section */}
-      <section id="resume" className="py-20">
-        <div className="container mx-auto px-6">
+      <section id="resume" className="py-28 relative overflow-hidden z-10">
+        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+          FILE
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-primary bg-clip-text text-transparent uppercase tracking-tight">
                 Resume
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-lg md:text-xl text-muted-foreground font-medium">
                 Download my complete resume
               </p>
             </div>
           </AnimatedSection>
 
           <AnimatedSection delay={200} className="text-center">
-            <Card className="bg-card/80 border-border shadow-elevated max-w-md mx-auto">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-primary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <Card className="glass-panel max-w-md mx-auto border-black/5 shadow-elevated rounded-2xl relative overflow-hidden group shadow-[0_20px_40px_rgba(99,102,241,0.04)] hover:shadow-[0_30px_60px_rgba(99,102,241,0.12)] transition-all duration-500">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-primary opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-all duration-500" />
+              <CardContent className="p-10 relative z-10">
+                <div className="w-16 h-16 bg-gradient-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                  <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-primary mb-4">Sai Teja - Resume</h3>
-                <p className="text-muted-foreground mb-6">
+                <h3 className="text-2xl font-black text-foreground mb-3 tracking-tight">Sai Teja - Resume</h3>
+                <p className="text-muted-foreground mb-8 max-w-xs mx-auto text-sm leading-relaxed font-semibold">
                   Complete overview of my skills, experience, and projects
                 </p>
                 <Button 
-                  className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-primary-foreground"
+                  className="bg-gradient-primary hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] text-white font-extrabold transition-all duration-300 w-full rounded-xl py-6 uppercase tracking-wide text-xs"
                   onClick={() => {
                     // Create a download link for resume
                     const link = document.createElement('a');
@@ -677,7 +718,7 @@ const Portfolio = () => {
                     link.click();
                   }}
                 >
-                  <ExternalLink className="w-5 h-5 mr-2" />
+                  <ExternalLink className="w-4 h-4 mr-2" />
                   Download Resume
                 </Button>
               </CardContent>
@@ -687,32 +728,36 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20">
-        <div className="container mx-auto px-6">
+      <section id="contact" className="py-28 relative overflow-hidden z-10">
+        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+          TALK
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl font-black mb-4 bg-gradient-primary bg-clip-text text-transparent uppercase tracking-tight">
                 Get In Touch
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-lg md:text-xl text-muted-foreground font-medium">
                 Let's discuss your next project
               </p>
             </div>
           </AnimatedSection>
 
           <AnimatedSection delay={200} className="max-w-2xl mx-auto">
-            <Card className="bg-card/50 border-border shadow-elevated">
-              <CardHeader>
-                <CardTitle className="text-primary">Send me a message</CardTitle>
-                <CardDescription>
+            <Card className="glass-panel border-black/5 shadow-elevated rounded-2xl relative overflow-hidden shadow-[0_20px_45px_rgba(99,102,241,0.04)]">
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/5 rounded-full blur-2xl pointer-events-none" />
+              <CardHeader className="p-8 pb-4 relative z-10">
+                <CardTitle className="text-foreground text-2xl font-black tracking-tight">Send me a message</CardTitle>
+                <CardDescription className="text-muted-foreground mt-2 font-medium">
                   I'd love to hear from you. Send me a message and I'll respond as soon as possible.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-8 pt-0 relative z-10">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="block text-sm font-bold text-foreground/90">
                         Name *
                       </label>
                       <Input
@@ -721,11 +766,11 @@ const Portfolio = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="bg-input/50 border-border focus:border-primary"
+                        className="bg-white border-black/10 text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl h-11 transition-all duration-300 shadow-sm"
                       />
                     </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                    <div className="space-y-2">
+                      <label htmlFor="phone" className="block text-sm font-bold text-foreground/90">
                         Phone
                       </label>
                       <Input
@@ -733,13 +778,13 @@ const Portfolio = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="bg-input/50 border-border focus:border-primary"
+                        className="bg-white border-black/10 text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl h-11 transition-all duration-300 shadow-sm"
                       />
                     </div>
                   </div>
                   
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="block text-sm font-bold text-foreground/90">
                       Email *
                     </label>
                     <Input
@@ -749,12 +794,12 @@ const Portfolio = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="bg-input/50 border-border focus:border-primary"
+                      className="bg-white border-black/10 text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl h-11 transition-all duration-300 shadow-sm"
                     />
                   </div>
                   
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="block text-sm font-bold text-foreground/90">
                       Message *
                     </label>
                     <Textarea
@@ -764,13 +809,13 @@ const Portfolio = () => {
                       onChange={handleInputChange}
                       required
                       rows={5}
-                      className="bg-input/50 border-border focus:border-primary resize-none"
+                      className="bg-white border-black/10 text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl transition-all duration-300 resize-none p-3 shadow-sm"
                     />
                   </div>
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300"
+                    className="w-full bg-gradient-primary hover:shadow-glow hover:scale-[1.01] active:scale-[0.99] text-white font-extrabold tracking-wide transition-all duration-300 rounded-xl h-12 mt-2 uppercase text-xs"
                   >
                     Send Message
                   </Button>
@@ -782,43 +827,47 @@ const Portfolio = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-gradient-subtle border-t border-border">
+      <footer className="py-14 bg-card/10 border-t border-black/5 relative z-10 backdrop-blur-md">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="text-center md:text-left">
-              <h3 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
+              <h3 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2 uppercase tracking-wide">
                 Sai Teja
               </h3>
-              <p className="text-muted-foreground">Full Stack Developer</p>
+              <p className="text-muted-foreground font-semibold text-sm">Full Stack Developer</p>
             </div>
             
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-5">
               <a 
                 href="https://github.com/saiteja859" 
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                className="w-10 h-10 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/20 transition-all duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="GitHub"
               >
-                <Github className="w-6 h-6" />
+                <Github className="w-5 h-5" />
               </a>
               <a 
                 href="https://www.linkedin.com/in/saitejaviswanadham/" 
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                className="w-10 h-10 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/20 transition-all duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-6 h-6" />
+                <Linkedin className="w-5 h-5" />
               </a>
               <a 
                 href="mailto:viswanadamsaiteja@gmail.com" 
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                className="w-10 h-10 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/20 transition-all duration-300"
                 aria-label="Email"
               >
-                <Mail className="w-6 h-6" />
+                <Mail className="w-5 h-5" />
               </a>
             </div>
           </div>
           
-          <div className="mt-8 pt-6 border-t border-border text-center">
-            <p className="text-muted-foreground text-sm">
+          <div className="mt-10 pt-8 border-t border-black/5 text-center">
+            <p className="text-muted-foreground/60 text-xs">
               © 2025 Sai Teja. All rights reserved. Built with React & TypeScript.
             </p>
           </div>
