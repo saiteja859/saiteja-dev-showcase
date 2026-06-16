@@ -211,5 +211,13 @@
     0% { transform: translate(0, 0) scale(1); }
     100% { transform: translate(-50px, 40px) scale(1.08); }
   }
+
+  /* Subtle static blue dot grid that fades out at the edges */
+  .bg-hero-subtle {
+    background-image: radial-gradient(rgba(59, 130, 246, 0.08) 1.5px, transparent 1.5px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 80%);
+  }
 }
 

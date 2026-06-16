@@ -9,7 +9,6 @@ import AnimatedSection from './AnimatedSection';
 import ProjectCard from './ProjectCard';
 import SkillCard from './SkillCard';
 import TimelineItem from './TimelineItem';
-import InteractiveParticles from './InteractiveParticles';
 import profileImage from '@/assets/profile.png';
 
 
@@ -349,7 +348,7 @@ const Portfolio = () => {
 
       {/* Hero Section */}
       <section className="pt-24 pb-12 min-h-screen flex items-center relative z-10 overflow-hidden">
-        <InteractiveParticles />
+        <div className="bg-hero-subtle absolute inset-0 w-full h-full pointer-events-none z-0" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
