@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Menu, X, Award } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Menu, X, Award, Sun, Moon } from 'lucide-react';
 import TypingEffect from './TypingEffect';
 import AnimatedSection from './AnimatedSection';
 import ProjectCard from './ProjectCard';
@@ -14,6 +14,32 @@ import profileImage from '@/assets/profile.png';
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('theme');
+      if (stored === 'dark' || stored === 'light') return stored;
+      
+      const systemPreferred = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return systemPreferred ? 'dark' : 'light';
+    }
+    return 'light';
+  });
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+      root.style.colorScheme = 'dark';
+    } else {
+      root.classList.remove('dark');
+      root.style.colorScheme = 'light';
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -295,7 +321,7 @@ const Portfolio = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/40 backdrop-blur-xl border-b border-black/5 shadow-sm">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/40 dark:bg-slate-950/40 backdrop-blur-xl border-b border-black/5 dark:border-white/5 shadow-sm">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-xl font-black bg-gradient-primary bg-clip-text text-transparent tracking-widest uppercase">
@@ -308,34 +334,55 @@ const Portfolio = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-muted-foreground hover:text-primary font-bold text-sm tracking-wide transition-colors duration-300 relative py-1.5 group"
+                  className="text-muted-foreground hover:text-primary dark:text-slate-300 dark:hover:text-white font-bold text-sm tracking-wide transition-colors duration-300 relative py-1.5 group"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full" />
                 </button>
               ))}
+
+              {/* Theme Toggle Button Desktop */}
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-foreground dark:text-white hover:bg-black/10 dark:hover:bg-white/10 hover:scale-[1.05] transition-all duration-300 shadow-sm"
+                aria-label="Toggle theme"
+              >
+                {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+              </button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <Button
-              variant="outline"
-              size="sm"
-              className="md:hidden border-black/10 bg-black/5 hover:bg-black/10 text-foreground"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-            </Button>
+            {/* Mobile Actions Container */}
+            <div className="flex items-center gap-3 md:hidden">
+              {/* Theme Toggle Button Mobile */}
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-foreground dark:text-white hover:bg-black/10 dark:hover:bg-white/10 hover:scale-[1.05] transition-all duration-300 shadow-sm"
+                aria-label="Toggle theme"
+              >
+                {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+              </button>
+
+              {/* Mobile Menu Button */}
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-foreground dark:text-white hover:text-primary dark:hover:text-white"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              </Button>
+            </div>
           </div>
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden mt-4 py-4 border-t border-black/5 glass-panel rounded-xl px-4">
+            <div className="md:hidden mt-4 py-4 border-t border-black/5 dark:border-white/5 glass-panel rounded-xl px-4">
               <div className="flex flex-col space-y-2">
                 {navigationItems.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="text-left text-muted-foreground hover:text-primary font-bold text-sm tracking-wide transition-colors duration-300 py-2.5 px-3 rounded-lg hover:bg-black/5"
+                    className="text-left text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white font-bold text-sm tracking-wide transition-colors duration-300 py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
                   >
                     {item.label}
                   </button>
@@ -378,15 +425,16 @@ const Portfolio = () => {
                 
                 <div className="flex flex-wrap gap-4 pt-2">
                   <Button 
+                    variant="outline"
                     onClick={() => scrollToSection('contact')}
-                    className="bg-gradient-primary hover:shadow-glow hover:scale-[1.03] active:scale-[0.97] text-white font-extrabold tracking-wide transition-all duration-300 rounded-2xl px-10 py-7 text-sm uppercase"
+                    className="border-black/15 dark:border-white/15 bg-white dark:bg-slate-900 hover:bg-black/5 dark:hover:bg-white/5 hover:scale-[1.03] active:scale-[0.97] text-foreground dark:text-white font-extrabold tracking-wide transition-all duration-300 rounded-2xl px-10 py-7 text-sm uppercase shadow-sm hover:text-primary dark:hover:text-white"
                   >
                     Get In Touch
                   </Button>
                   <Button 
                     variant="outline" 
                     onClick={() => scrollToSection('projects')}
-                    className="border-black/15 bg-white hover:bg-black/5 hover:scale-[1.03] active:scale-[0.97] text-foreground font-extrabold tracking-wide transition-all duration-300 rounded-2xl px-10 py-7 text-sm uppercase shadow-sm"
+                    className="border-black/15 dark:border-white/15 bg-white dark:bg-slate-900 hover:bg-black/5 dark:hover:bg-white/5 hover:scale-[1.03] active:scale-[0.97] text-foreground dark:text-white font-extrabold tracking-wide transition-all duration-300 rounded-2xl px-10 py-7 text-sm uppercase shadow-sm hover:text-primary dark:hover:text-white"
                   >
                     View My Work
                   </Button>
@@ -422,7 +470,7 @@ const Portfolio = () => {
 
       {/* About Section */}
       <section id="about" className="py-28 relative overflow-hidden z-10">
-        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/30 dark:text-slate-800/15 select-none pointer-events-none absolute leading-none">
           INFO
         </div>
         <div className="container mx-auto px-6 relative z-10">
@@ -440,7 +488,7 @@ const Portfolio = () => {
 
           <AnimatedSection delay={200}>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              <Card className="glass-panel glass-panel-hover border-black/5 shadow-card hover:scale-[1.03] rounded-2xl shadow-[0_15px_30px_rgba(99,102,241,0.03)] transition-all duration-500">
+              <Card className="glass-panel glass-panel-hover border-black/5 dark:border-white/5 shadow-card hover:scale-[1.03] rounded-2xl shadow-[0_15px_30px_rgba(99,102,241,0.03)] transition-all duration-500">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-gradient-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
                     <Phone className="w-6 h-6 text-primary" />
@@ -450,7 +498,7 @@ const Portfolio = () => {
                 </CardContent>
               </Card>
 
-              <Card className="glass-panel glass-panel-hover border-black/5 shadow-card hover:scale-[1.03] rounded-2xl shadow-[0_15px_30px_rgba(99,102,241,0.03)] transition-all duration-500">
+              <Card className="glass-panel glass-panel-hover border-black/5 dark:border-white/5 shadow-card hover:scale-[1.03] rounded-2xl shadow-[0_15px_30px_rgba(99,102,241,0.03)] transition-all duration-500">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-gradient-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
                     <Mail className="w-6 h-6 text-primary" />
@@ -460,7 +508,7 @@ const Portfolio = () => {
                 </CardContent>
               </Card>
 
-              <Card className="glass-panel glass-panel-hover border-black/5 shadow-card hover:scale-[1.03] rounded-2xl shadow-[0_15px_30px_rgba(99,102,241,0.03)] transition-all duration-500">
+              <Card className="glass-panel glass-panel-hover border-black/5 dark:border-white/5 shadow-card hover:scale-[1.03] rounded-2xl shadow-[0_15px_30px_rgba(99,102,241,0.03)] transition-all duration-500">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-gradient-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
                     <MapPin className="w-6 h-6 text-primary" />
@@ -473,7 +521,8 @@ const Portfolio = () => {
             
             <div className="flex justify-center gap-4">
               <Button 
-                className="bg-gradient-primary hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] text-white font-bold tracking-wide transition-all duration-300 rounded-xl px-8 py-5 uppercase text-xs"
+                variant="outline"
+                className="border-black/10 dark:border-white/10 bg-white dark:bg-slate-900 hover:bg-black/5 dark:hover:bg-white/5 hover:scale-[1.02] active:scale-[0.98] text-foreground dark:text-white font-bold tracking-wide transition-all duration-300 rounded-xl px-8 py-5 uppercase text-xs shadow-sm hover:text-primary dark:hover:text-white"
                 onClick={() => window.open('https://www.linkedin.com/in/saitejaviswanadham/', '_blank')}
               >
                 <Linkedin className="w-4 h-4 mr-2" />
@@ -481,7 +530,7 @@ const Portfolio = () => {
               </Button>
               <Button 
                 variant="outline"
-                className="border-black/10 bg-white hover:bg-black/5 hover:scale-[1.02] active:scale-[0.98] text-foreground font-bold tracking-wide transition-all duration-300 rounded-xl px-8 py-5 uppercase text-xs shadow-sm"
+                className="border-black/10 dark:border-white/10 bg-white dark:bg-slate-900 hover:bg-black/5 dark:hover:bg-white/5 hover:scale-[1.02] active:scale-[0.98] text-foreground dark:text-white font-bold tracking-wide transition-all duration-300 rounded-xl px-8 py-5 uppercase text-xs shadow-sm hover:text-primary dark:hover:text-white"
                 onClick={() => window.open('https://github.com/saiteja859', '_blank')}
               >
                 <Github className="w-4 h-4 mr-2" />
@@ -494,7 +543,7 @@ const Portfolio = () => {
 
       {/* Skills Section */}
       <section id="skills" className="py-28 relative overflow-hidden z-10">
-        <div className="watermark-text right-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+        <div className="watermark-text right-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/30 dark:text-slate-800/15 select-none pointer-events-none absolute leading-none">
           TECH
         </div>
         <div className="container mx-auto px-6 relative z-10">
@@ -523,7 +572,7 @@ const Portfolio = () => {
 
       {/* Education Section */}
       <section id="education" className="py-28 relative overflow-hidden z-10">
-        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/30 dark:text-slate-800/15 select-none pointer-events-none absolute leading-none">
           PATH
         </div>
         <div className="container mx-auto px-6 relative z-10">
@@ -557,7 +606,7 @@ const Portfolio = () => {
 
       {/* Projects Section */}
       <section id="projects" className="py-28 relative overflow-hidden z-10">
-        <div className="watermark-text right-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+        <div className="watermark-text right-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/30 dark:text-slate-800/15 select-none pointer-events-none absolute leading-none">
           WORK
         </div>
         <div className="container mx-auto px-6 relative z-10">
@@ -586,7 +635,7 @@ const Portfolio = () => {
 
       {/* Experience Section */}
       <section id="experience" className="py-28 relative overflow-hidden z-10">
-        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/30 dark:text-slate-800/15 select-none pointer-events-none absolute leading-none">
           ROLE
         </div>
         <div className="container mx-auto px-6 relative z-10">
@@ -620,7 +669,7 @@ const Portfolio = () => {
 
       {/* Certifications Section */}
       <section id="certifications" className="py-28 relative overflow-hidden z-10">
-        <div className="watermark-text right-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+        <div className="watermark-text right-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/30 dark:text-slate-800/15 select-none pointer-events-none absolute leading-none">
           AWARD
         </div>
         <div className="container mx-auto px-6 relative z-10">
@@ -639,7 +688,7 @@ const Portfolio = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {certifications.map((cert, index) => (
                 <div key={index} style={{ animationDelay: `${index * 60}ms` }}>
-                  <Card className="glass-panel glass-panel-hover border-black/5 shadow-card hover:scale-[1.03] rounded-2xl overflow-hidden h-full flex flex-col justify-between shadow-[0_15px_35px_rgba(99,102,241,0.03)] hover:shadow-[0_20px_45px_rgba(99,102,241,0.1)] transition-all duration-500">
+                  <Card className="glass-panel glass-panel-hover border-black/5 dark:border-white/5 shadow-card hover:scale-[1.03] rounded-2xl overflow-hidden h-full flex flex-col justify-between shadow-[0_15px_35px_rgba(99,102,241,0.03)] hover:shadow-[0_20px_45px_rgba(99,102,241,0.1)] transition-all duration-500">
                     <CardHeader className="p-6">
                       <div className="flex items-start justify-between gap-4">
                         <div className="space-y-2">
@@ -679,7 +728,7 @@ const Portfolio = () => {
 
       {/* Resume Section */}
       <section id="resume" className="py-28 relative overflow-hidden z-10">
-        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/30 dark:text-slate-800/15 select-none pointer-events-none absolute leading-none">
           FILE
         </div>
         <div className="container mx-auto px-6 relative z-10">
@@ -695,7 +744,7 @@ const Portfolio = () => {
           </AnimatedSection>
 
           <AnimatedSection delay={200} className="text-center">
-            <Card className="glass-panel max-w-md mx-auto border-black/5 shadow-elevated rounded-2xl relative overflow-hidden group shadow-[0_20px_40px_rgba(99,102,241,0.04)] hover:shadow-[0_30px_60px_rgba(99,102,241,0.12)] transition-all duration-500">
+            <Card className="glass-panel max-w-md mx-auto border-black/5 dark:border-white/5 shadow-elevated rounded-2xl relative overflow-hidden group shadow-[0_20px_40px_rgba(99,102,241,0.04)] hover:shadow-[0_30px_60px_rgba(99,102,241,0.12)] transition-all duration-500">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-primary opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-all duration-500" />
               <CardContent className="p-10 relative z-10">
                 <div className="w-16 h-16 bg-gradient-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
@@ -728,7 +777,7 @@ const Portfolio = () => {
 
       {/* Contact Section */}
       <section id="contact" className="py-28 relative overflow-hidden z-10">
-        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/50 select-none pointer-events-none absolute leading-none">
+        <div className="watermark-text left-6 top-6 text-9xl md:text-[11rem] font-black text-slate-200/30 dark:text-slate-800/15 select-none pointer-events-none absolute leading-none">
           TALK
         </div>
         <div className="container mx-auto px-6 relative z-10">
@@ -744,7 +793,7 @@ const Portfolio = () => {
           </AnimatedSection>
 
           <AnimatedSection delay={200} className="max-w-2xl mx-auto">
-            <Card className="glass-panel border-black/5 shadow-elevated rounded-2xl relative overflow-hidden shadow-[0_20px_45px_rgba(99,102,241,0.04)]">
+            <Card className="glass-panel border-black/5 dark:border-white/5 shadow-elevated rounded-2xl relative overflow-hidden shadow-[0_20px_45px_rgba(99,102,241,0.04)]">
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/5 rounded-full blur-2xl pointer-events-none" />
               <CardHeader className="p-8 pb-4 relative z-10">
                 <CardTitle className="text-foreground text-2xl font-black tracking-tight">Send me a message</CardTitle>
@@ -765,7 +814,7 @@ const Portfolio = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="bg-white border-black/10 text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl h-11 transition-all duration-300 shadow-sm"
+                        className="bg-white dark:bg-slate-950 border-black/10 dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl h-11 transition-all duration-300 shadow-sm"
                       />
                     </div>
                     <div className="space-y-2">
@@ -777,7 +826,7 @@ const Portfolio = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="bg-white border-black/10 text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl h-11 transition-all duration-300 shadow-sm"
+                        className="bg-white dark:bg-slate-950 border-black/10 dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl h-11 transition-all duration-300 shadow-sm"
                       />
                     </div>
                   </div>
@@ -793,7 +842,7 @@ const Portfolio = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="bg-white border-black/10 text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl h-11 transition-all duration-300 shadow-sm"
+                      className="bg-white dark:bg-slate-950 border-black/10 dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl h-11 transition-all duration-300 shadow-sm"
                     />
                   </div>
                   
@@ -808,7 +857,7 @@ const Portfolio = () => {
                       onChange={handleInputChange}
                       required
                       rows={5}
-                      className="bg-white border-black/10 text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl transition-all duration-300 resize-none p-3 shadow-sm"
+                      className="bg-white dark:bg-slate-950 border-black/10 dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl transition-all duration-300 resize-none p-3 shadow-sm"
                     />
                   </div>
                   
