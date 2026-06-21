@@ -18,7 +18,7 @@ const Portfolio = () => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('theme');
       if (stored === 'dark' || stored === 'light') return stored;
-      
+
       const systemPreferred = window.matchMedia('(prefers-color-scheme: dark)').matches;
       return systemPreferred ? 'dark' : 'light';
     }
@@ -95,19 +95,19 @@ const Portfolio = () => {
 
   const projects = [
     {
-  title: 'AI Resume Analyzer',
-  description: 'AI-powered resume analysis web app that evaluates ATS compatibility, keyword optimization,personalized OpenAI-powered feedback.',
-  technologies: 'MERN Stack, OpenAI API, NLP',
-   liveUrl: 'https://ai-resume-analyzer-free-three.vercel.app/',
-  codeUrl: 'https://github.com/saiteja859/ai-resume-analyzer'
-},
-{
-  title: 'Document Intelligence',
-  description: 'An AI-powered PDF summarization platform built using RAG and Gemini API to deliver accurate, context-aware document insights',
-  technologies: 'MERN Stack, Gemini API, RAG',
-   liveUrl: 'https://document-intelligence-hub-one.vercel.app/login',
-  codeUrl: 'https://github.com/saiteja859/document-intelligence-hub'
-},
+      title: 'AI Resume Analyzer',
+      description: 'AI-powered resume analysis web app that evaluates ATS compatibility, keyword optimization,personalized OpenAI-powered feedback.',
+      technologies: 'MERN Stack, OpenAI API, NLP',
+      liveUrl: 'https://ai-resume-analyzer-free-three.vercel.app/',
+      codeUrl: 'https://github.com/saiteja859/ai-resume-analyzer'
+    },
+    {
+      title: 'Document Intelligence',
+      description: 'An AI-powered PDF summarization platform built using RAG and Gemini API to deliver accurate, context-aware document insights',
+      technologies: 'MERN Stack, Gemini API, RAG',
+      liveUrl: 'https://document-intelligence-hub-one.vercel.app/login',
+      codeUrl: 'https://github.com/saiteja859/document-intelligence-hub'
+    },
     {
       title: 'Easy Bookings',
       description: 'A rental property listing platform built with modern web technologies.',
@@ -130,40 +130,40 @@ const Portfolio = () => {
       codeUrl: 'https://github.com/saiteja859/equipment-rental'
     },
     {
-  title: 'Dark UX Detector',
-  description: 'Browser extension + web dashboard that detects dark UX/UI patterns (misleading buttons, hidden costs, forced sign-ups) on any website.',
-  technologies: 'MERN Stack, JavaScript, DOM Parsing',
-  // liveUrl: '#',
-  codeUrl: 'https://github.com/KarthikeyaTadiparti/SankalpHackathon'
-},
- {
-  title: 'Campus Connect',
-  description: 'An AI-powered Campus Connect platform designed to streamline communication, event updates, and student collaboration through a smart, centralized system.',
-  technologies: 'MERN Stack, JavaScript, Gemini API',
-  // liveUrl: '#',
-  codeUrl: 'https://github.com/saiteja859/Campus-Connect.git'
-},
- {
-  title: 'Cine Track',
-  description: 'CineTrack is a movie and series tracking platform that helps users organize watchlists, discover content, and manage entertainment schedules efficiently.',
-  technologies: 'Google AI Studio, Firebase , MERN',
-  liveUrl: 'https://cinetrack-781z.vercel.app/',
-  codeUrl: 'https://github.com/saiteja859/cinetrack.git'
-},
- {
-  title: 'Job Link Tracker',
-  description: 'Job Link Sharing made easy. Share, track, and discover opportunities in one place. Vibe coded with UI, duplicate detection, and seamless mobile-friendly experience.',
-  technologies: 'Google AI Studio, Firebase , MERN',
-  liveUrl: 'job-link-tracker-635172016859.asia-southeast1.run.app',
-  //codeUrl: 'https:'
-},
- {
-  title: 'True Captures',
-  description: 'A vibe-coded photography portfolio website designed to showcase stunning moments through a clean, modern, and responsive gallery experience across desktop and mobile devices.',
-  technologies: 'Google AI Studio, Firebase , MERN',
-  liveUrl: 'https://truecaptures.vercel.app/',
-  codeUrl: 'https://github.com/saiteja859/truecaptures.git'
-}
+      title: 'Dark UX Detector',
+      description: 'Browser extension + web dashboard that detects dark UX/UI patterns (misleading buttons, hidden costs, forced sign-ups) on any website.',
+      technologies: 'MERN Stack, JavaScript, DOM Parsing',
+      // liveUrl: '#',
+      codeUrl: 'https://github.com/KarthikeyaTadiparti/SankalpHackathon'
+    },
+    {
+      title: 'Campus Connect',
+      description: 'An AI-powered Campus Connect platform designed to streamline communication, event updates, and student collaboration through a smart, centralized system.',
+      technologies: 'MERN Stack, JavaScript, Gemini API',
+      // liveUrl: '#',
+      codeUrl: 'https://github.com/saiteja859/Campus-Connect.git'
+    },
+    {
+      title: 'Cine Track',
+      description: 'CineTrack is a movie and series tracking platform that helps users organize watchlists, discover content, and manage entertainment schedules efficiently.',
+      technologies: 'Google AI Studio, Firebase , MERN',
+      liveUrl: 'https://cinetrack-781z.vercel.app/',
+      codeUrl: 'https://github.com/saiteja859/cinetrack.git'
+    },
+    {
+      title: 'Job Link Tracker',
+      description: 'Job Link Sharing made easy. Share, track, and discover opportunities in one place. Vibe coded with UI, duplicate detection, and seamless mobile-friendly experience.',
+      technologies: 'Google AI Studio, Firebase , MERN',
+      liveUrl: 'https://job-link-tracker-635172016859.asia-southeast1.run.app',
+      //codeUrl: 'https:'
+    },
+    {
+      title: 'True Captures',
+      description: 'A vibe-coded photography portfolio website designed to showcase stunning moments through a clean, modern, and responsive gallery experience across desktop and mobile devices.',
+      technologies: 'Google AI Studio, Firebase , MERN',
+      liveUrl: 'https://truecaptures.vercel.app/',
+      codeUrl: 'https://github.com/saiteja859/truecaptures.git'
+    }
   ];
 
   const education = [
@@ -327,7 +327,7 @@ const Portfolio = () => {
             <h1 className="text-xl font-black bg-gradient-primary bg-clip-text text-transparent tracking-widest uppercase">
               Sai Teja
             </h1>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6">
               {navigationItems.map((item) => (
@@ -409,7 +409,7 @@ const Portfolio = () => {
                     Sai Teja
                   </h1>
                   <div className="text-2xl md:text-4xl font-extrabold text-foreground">
-                    <TypingEffect 
+                    <TypingEffect
                       text="Full Stack Developer"
                       speed={100}
                       delay={1000}
@@ -417,22 +417,22 @@ const Portfolio = () => {
                     />
                   </div>
                 </div>
-                
+
                 <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed max-w-xl font-medium">
-                  Passionate about coding, MERN stack, and building amazing applications. 
+                  Passionate about coding, MERN stack, and building amazing applications.
                   Let's create something incredible together!
                 </p>
-                
+
                 <div className="flex flex-wrap gap-4 pt-2">
-                  <Button 
+                  <Button
                     variant="outline"
                     onClick={() => scrollToSection('contact')}
                     className="border-black/15 dark:border-white/15 bg-white dark:bg-slate-900 hover:bg-black/5 dark:hover:bg-white/5 hover:scale-[1.03] active:scale-[0.97] text-foreground dark:text-white font-extrabold tracking-wide transition-all duration-300 rounded-2xl px-10 py-7 text-sm uppercase shadow-sm hover:text-primary dark:hover:text-white"
                   >
                     Get In Touch
                   </Button>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     onClick={() => scrollToSection('projects')}
                     className="border-black/15 dark:border-white/15 bg-white dark:bg-slate-900 hover:bg-black/5 dark:hover:bg-white/5 hover:scale-[1.03] active:scale-[0.97] text-foreground dark:text-white font-extrabold tracking-wide transition-all duration-300 rounded-2xl px-10 py-7 text-sm uppercase shadow-sm hover:text-primary dark:hover:text-white"
                   >
@@ -447,10 +447,10 @@ const Portfolio = () => {
               <div className="relative flex justify-center items-center">
                 {/* Colorful Ambient aura glow */}
                 <div className="absolute w-[420px] h-[420px] bg-gradient-primary rounded-full blur-3xl opacity-20 animate-pulse pointer-events-none" />
-                
+
                 {/* Cyber Rotating Ring 1 */}
                 <div className="absolute w-[360px] h-[360px] rounded-full border border-dashed border-primary/40 animate-spin-slow pointer-events-none" />
-                
+
                 {/* Cyber Rotating Ring 2 */}
                 <div className="absolute w-[340px] h-[340px] rounded-full border-2 border-dotted border-secondary/35 animate-spin-reverse-slow pointer-events-none" />
 
@@ -480,7 +480,7 @@ const Portfolio = () => {
                 About Me
               </h2>
               <p className="text-lg md:text-2xl text-muted-foreground/90 max-w-3xl mx-auto leading-relaxed font-medium">
-                I'm Sai Teja, Full Stack Developer from Vizag, India. Passionate about coding, 
+                I'm Sai Teja, Full Stack Developer from Vizag, India. Passionate about coding,
                 MERN stack, and building applications.
               </p>
             </div>
@@ -518,9 +518,9 @@ const Portfolio = () => {
                 </CardContent>
               </Card>
             </div>
-            
+
             <div className="flex justify-center gap-4">
-              <Button 
+              <Button
                 variant="outline"
                 className="border-black/10 dark:border-white/10 bg-white dark:bg-slate-900 hover:bg-black/5 dark:hover:bg-white/5 hover:scale-[1.02] active:scale-[0.98] text-foreground dark:text-white font-bold tracking-wide transition-all duration-300 rounded-xl px-8 py-5 uppercase text-xs shadow-sm hover:text-primary dark:hover:text-white"
                 onClick={() => window.open('https://www.linkedin.com/in/saitejaviswanadham/', '_blank')}
@@ -528,7 +528,7 @@ const Portfolio = () => {
                 <Linkedin className="w-4 h-4 mr-2" />
                 LinkedIn
               </Button>
-              <Button 
+              <Button
                 variant="outline"
                 className="border-black/10 dark:border-white/10 bg-white dark:bg-slate-900 hover:bg-black/5 dark:hover:bg-white/5 hover:scale-[1.02] active:scale-[0.98] text-foreground dark:text-white font-bold tracking-wide transition-all duration-300 rounded-xl px-8 py-5 uppercase text-xs shadow-sm hover:text-primary dark:hover:text-white"
                 onClick={() => window.open('https://github.com/saiteja859', '_blank')}
@@ -756,7 +756,7 @@ const Portfolio = () => {
                 <p className="text-muted-foreground mb-8 max-w-xs mx-auto text-sm leading-relaxed font-semibold">
                   Complete overview of my skills, experience, and projects
                 </p>
-                <Button 
+                <Button
                   className="bg-gradient-primary hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] text-white font-extrabold transition-all duration-300 w-full rounded-xl py-6 uppercase tracking-wide text-xs"
                   onClick={() => {
                     // Create a download link for resume
@@ -830,7 +830,7 @@ const Portfolio = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label htmlFor="email" className="block text-sm font-bold text-foreground/90">
                       Email *
@@ -845,7 +845,7 @@ const Portfolio = () => {
                       className="bg-white dark:bg-slate-950 border-black/10 dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl h-11 transition-all duration-300 shadow-sm"
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label htmlFor="message" className="block text-sm font-bold text-foreground/90">
                       Message *
@@ -860,9 +860,9 @@ const Portfolio = () => {
                       className="bg-white dark:bg-slate-950 border-black/10 dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground/40 focus:border-primary focus:ring-4 focus:ring-primary/10 rounded-xl transition-all duration-300 resize-none p-3 shadow-sm"
                     />
                   </div>
-                  
-                  <Button 
-                    type="submit" 
+
+                  <Button
+                    type="submit"
                     className="w-full bg-gradient-primary hover:shadow-glow hover:scale-[1.01] active:scale-[0.99] text-white font-extrabold tracking-wide transition-all duration-300 rounded-xl h-12 mt-2 uppercase text-xs"
                   >
                     Send Message
@@ -884,10 +884,10 @@ const Portfolio = () => {
               </h3>
               <p className="text-muted-foreground font-semibold text-sm">Full Stack Developer</p>
             </div>
-            
+
             <div className="flex items-center gap-5">
-              <a 
-                href="https://github.com/saiteja859" 
+              <a
+                href="https://github.com/saiteja859"
                 className="w-10 h-10 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/20 transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -895,8 +895,8 @@ const Portfolio = () => {
               >
                 <Github className="w-5 h-5" />
               </a>
-              <a 
-                href="https://www.linkedin.com/in/saitejaviswanadham/" 
+              <a
+                href="https://www.linkedin.com/in/saitejaviswanadham/"
                 className="w-10 h-10 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/20 transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -904,8 +904,8 @@ const Portfolio = () => {
               >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a 
-                href="mailto:viswanadamsaiteja@gmail.com" 
+              <a
+                href="mailto:viswanadamsaiteja@gmail.com"
                 className="w-10 h-10 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/20 transition-all duration-300"
                 aria-label="Email"
               >
@@ -913,7 +913,7 @@ const Portfolio = () => {
               </a>
             </div>
           </div>
-          
+
           <div className="mt-10 pt-8 border-t border-black/5 text-center">
             <p className="text-muted-foreground/60 text-xs">
               © 2025 Sai Teja. All rights reserved. Built with React & TypeScript.
